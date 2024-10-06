@@ -1,0 +1,209 @@
+/* General Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes growBar {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #0b0f17;
+    color: white;
+}
+
+/* Navbar Styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1b1f28;
+    z-index: 1000;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out; /* Navbar animation */
+}
+
+.logo h2 {
+    color: #00D169;
+}
+
+.navbar .menu {
+    display: none;
+    animation: slideIn 0.5s ease-in-out; /* Menu animation */
+}
+
+.navbar .menu ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .menu ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.hamburger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+
+/* Circle Container and Status Update Section */
+.circle-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 100px;
+    padding: 50px;
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #1b1f28;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    position: relative;
+    animation: fadeIn 1s ease-in-out; /* Circle fade-in animation */
+    transition: transform 0.5s ease; /* Scale transition on hover */
+}
+
+.circle:hover {
+    transform: scale(1.1); /* Hover scaling */
+}
+
+.circle::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 30px;
+    height: 30px;
+    background-color: #00D169;
+    border-radius: 50%;
+    animation: fadeIn 1.5s ease-in-out; /* Dot fade-in animation */
+}
+
+/* Status Update Section */
+.status-update {
+    padding: 50px;
+    text-align: left;
+    animation: fadeIn 1.5s ease-in-out; /* Status update section animation */
+}
+
+.status-update h3 {
+    font-size: 2em;
+    color: #00D169;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-in-out; /* Each status item fades in */
+}
+
+.status-item p {
+    flex: 1;
+}
+
+.status-bar {
+    background-color: #1b1f28;
+    width: 300px;
+    height: 10px;
+    margin: 0 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.status-bar span {
+    display: block;
+    height: 100%;
+    background-color: #00D169;
+    animation: growBar 2s ease-in-out; /* Bar growing animation */
+}
+
+.status-number {
+    background-color: #00D169;
+    padding: 5px 10px;
+    border-radius: 5px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+    .navbar .menu {
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background-color: #1b1f28;
+        padding: 20px;
+        display: block;
+        text-align: right;
+        width: 100%;
+        height: 100vh;
+        animation: slideIn 0.5s ease-in-out; /* Menu sliding in */
+    }
+
+    .navbar .menu ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .circle-container {
+        flex-direction: column;
+    }
+
+    .status-update {
+        padding: 20px;
+    }
+
+    .status-bar {
+        width: 100%;
+    }
+}
